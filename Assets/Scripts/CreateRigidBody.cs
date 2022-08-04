@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Manager : MonoBehaviour
+public class CreateRigidBody : MonoBehaviour
 {
-    
-    [SerializeField] private GameObject foot;
-    
+        
+
     void Start()
     {
-        foot.AddComponent<BoxCollider2D>();
+        
     }
 
-    
+    // Update is called once per frame
     void Update()
     {
         
