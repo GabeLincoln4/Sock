@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class Rotate
 {
-    private float speed = 50f;
+    public Transform rotationObject;
+    public float rotateSpeed = 50f;
 
     public void Rotation()
     {
-        if (Input.GetKey(KeyCode.Q))
-            transform.Rotate(Vector3.forward, speed * Time.deltaTime);
+        //rotationObject = rotationObject.GetComponent<Transform>();
+
+        //if (Input.GetKey(KeyCode.Q))
+        //{
+            //rotationObject.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * rotateSpeed);
+        //}
 
         Debug.Log("Rotate script reporting for duty");
     }
