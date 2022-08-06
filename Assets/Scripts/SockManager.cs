@@ -5,6 +5,9 @@ using UnityEngine;
 public class SockManager : MonoBehaviour
 {
     [SerializeField]
+    private bool Rotation;
+
+    [SerializeField]
     private GameObject sock;
     
     [SerializeField]
@@ -17,11 +20,18 @@ public class SockManager : MonoBehaviour
     private int size;
     private Vector2[] colliderPoints;
     private Vector2[] edges;
+    private Rotate spin;
 
     
 
     void Start()
     {
+        if (Rotation)
+        {
+            spin = new Rotate();
+
+            spin.Rotation();
+        }
         sock.AddComponent<EdgeCollider2D>();
 
         edges = sock.GetComponent<EdgeCollider2D>().points;
