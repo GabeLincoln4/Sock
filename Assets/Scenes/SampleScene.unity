@@ -497,9 +497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rotation: 1
-  sock: {fileID: 909946538}
+  _sock: {fileID: 909946538}
   x: -0.32
   y: 0.18
   size: 0
-  _rotation: {fileID: 909946540}
-  _rotateSpeed: 50
