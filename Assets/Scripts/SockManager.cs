@@ -25,16 +25,16 @@ public class SockManager : MonoBehaviour
 
     private RotationResponse _rotationResponse;
 
-    private void Awake()
+    void Awake()
     {
-        _rotationResponse = new RotationResponse();
+        _rotationResponse = sock.AddComponent<RotationResponse>();
+        _rotation = sock.GetComponent<Transform>();
+        Debug.Log(_rotationResponse);
     }
 
     void Start()
     {
         sock.AddComponent<EdgeCollider2D>();
-        sock.AddComponent<Transform>();
-        _rotation = sock.GetComponent<Transform>();
         edges = sock.GetComponent<EdgeCollider2D>().points;
         colliderPoints = edges;
         colliderPoints[5] = new Vector2(x, y);
@@ -51,25 +51,3 @@ public class SockManager : MonoBehaviour
         _rotationResponse.RotateClockwise(rotation);  
     }
 }
-
-internal class RotationResponse : MonoBehaviour
-    {
-
-        [SerializeField] private float _rotateSpeed = 50;    
-
-        public void RotateClockwise(Transform rotation)
-        {
-            if (Input.GetKey(KeyCode.E))
-            {
-                rotation.Rotate(Vector3.forward, -_rotateSpeed * Time.deltaTime);
-            }
-        }
-
-        public void RotateCounterclockwise(Transform rotation)
-        {
-            if (Input.GetKey(KeyCode.Q))
-            {
-                rotation.Rotate(Vector3.forward, _rotateSpeed * Time.deltaTime);
-            }  
-        }
-    }
