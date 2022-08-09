@@ -11,7 +11,7 @@ public class RotationResponse : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.E))
         {
-            rotation.Rotate(Vector3.forward, -_rotateSpeed * Time.deltaTime);
+            RotateAction(rotation, -_rotateSpeed);
         }
     }
 
@@ -19,7 +19,30 @@ public class RotationResponse : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Q))
         {
-            rotation.Rotate(Vector3.forward, _rotateSpeed * Time.deltaTime);
+            RotateAction(rotation, _rotateSpeed);
         }
+    }
+
+    public void RotateClockwiseOnLeftClick(Transform rotation)
+    {
+        if (Input.GetButton("Fire1"))
+        {
+            RotateAction(rotation, _rotateSpeed);
+            Debug.Log("Left Clicked");
+        }
+    }
+
+    public void RotateCounterclockwiseOnRightClick(Transform rotation)
+    {
+        if (Input.GetButton("Fire2"))
+        {
+            RotateAction(rotation, -_rotateSpeed);
+            Debug.Log("Right Clicked");
+        }
+    }
+
+    public void RotateAction(Transform rotation, float direction)
+    {
+        rotation.Rotate(Vector3.forward, direction * Time.deltaTime);
     }
 }
