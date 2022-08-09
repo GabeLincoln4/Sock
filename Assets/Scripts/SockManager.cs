@@ -18,7 +18,6 @@ public class SockManager : MonoBehaviour
     
     [SerializeField]
     private int size;
-    private Vector2[] colliderPoints;
     private Vector2[] _edges;
     private Transform _rotation;
 
@@ -37,9 +36,7 @@ public class SockManager : MonoBehaviour
         var edges = _edges;
         _sock.AddComponent<EdgeCollider2D>();
         _edges = _sock.GetComponent<EdgeCollider2D>().points;
-        colliderPoints = _edges;
-        colliderPoints[5] = new Vector2(x, y);
-        _edges = colliderPoints;
+        _edges[5] = new Vector2(x, y);
 
         Debug.Log(_edges);
     }
