@@ -21,19 +21,20 @@ public class SockManager : MonoBehaviour
     private Vector2[] colliderPoints;
     private Vector2[] edges;
     private Rotate spin;
+    private Transform _rotation;
 
-    
+    private RotationResponse _rotationResponse;
+
+    private void Awake()
+    {
+        _rotationResponse = new RotationResponse();
+    }
 
     void Start()
     {
-        if (Rotation)
-        {
-            spin = new Rotate();
-
-            spin.Rotation();
-        }
         sock.AddComponent<EdgeCollider2D>();
-
+        sock.AddComponent<Transform>();
+        _rotation = sock.GetComponent<Transform>();
         edges = sock.GetComponent<EdgeCollider2D>().points;
         colliderPoints = edges;
         colliderPoints[5] = new Vector2(x, y);
@@ -42,9 +43,33 @@ public class SockManager : MonoBehaviour
         Debug.Log(edges);
     }
 
-    // Update is called once per frame
     void Update()
     {
+        var rotation = _rotation;
         
+        _rotationResponse.RotateCounterclockwise(rotation);
+        _rotationResponse.RotateClockwise(rotation);  
     }
 }
+
+internal class RotationResponse : MonoBehaviour
+    {
+
+        [SerializeField] private float _rotateSpeed = 50;    
+
+        public void RotateClockwise(Transform rotation)
+        {
+            if (Input.GetKey(KeyCode.E))
+            {
+                rotation.Rotate(Vector3.forward, -_rotateSpeed * Time.deltaTime);
+            }
+        }
+
+        public void RotateCounterclockwise(Transform rotation)
+        {
+            if (Input.GetKey(KeyCode.Q))
+            {
+                rotation.Rotate(Vector3.forward, _rotateSpeed * Time.deltaTime);
+            }  
+        }
+    }
