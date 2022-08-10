@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class EdgeColliderManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private Mesh colliderMesh;
+
     public void AdjustEdgeCollider2D(Vector2[] edges, GameObject gameObject, float x, float y)
     {
         gameObject.AddComponent<EdgeCollider2D>();
+        colliderMesh = gameObject.GetComponent<EdgeCollider2D>().CreateMesh(true, true);
         edges = gameObject.GetComponent<EdgeCollider2D>().points;
-        edges[5] = new Vector2(x, y);
+        edges[0] = new Vector2(x, y);
     }
 }

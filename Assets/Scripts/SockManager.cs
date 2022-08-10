@@ -20,7 +20,6 @@ public class SockManager : MonoBehaviour
     private int size;
     private Vector2[] _edges;
     private Transform _rotation;
-
     private RotationResponse _rotationResponse;
     private EdgeColliderManager _colliderManager;
 
@@ -38,7 +37,6 @@ public class SockManager : MonoBehaviour
         var sock = _sock;
         var edges = _edges;
         _colliderManager.AdjustEdgeCollider2D(edges, sock, x, y);
-        Debug.Log(_edges);
     }
 
     void Update()
@@ -48,6 +46,4 @@ public class SockManager : MonoBehaviour
         _rotationResponse.RotateCounterclockwiseOnRightClick(rotation);
         _rotationResponse.RotateClockwiseOnLeftClick(rotation);  
     }
-
-    
 }
