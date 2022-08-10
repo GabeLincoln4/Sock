@@ -11,10 +11,10 @@ public class SockManager : MonoBehaviour
     private GameObject _sock;
     
     [SerializeField]
-    private float x;
+    public float x;
 
     [SerializeField]
-    private float y;
+    public float y;
     
     [SerializeField]
     private int size;
@@ -22,21 +22,26 @@ public class SockManager : MonoBehaviour
     private Transform _rotation;
     private RotationResponse _rotationResponse;
     private EdgeColliderManager _colliderManager;
+    private EdgeCollider2D _sockCollider;
+    private Vector2[] edges; 
 
     void Awake()
     {
+        var sockCollider = _sockCollider;
+        sockCollider = _sock.AddComponent<EdgeCollider2D>();
         _rotationResponse = _sock.AddComponent<RotationResponse>();
         _rotation = _sock.GetComponent<Transform>();
-        Debug.Log(_rotationResponse);
-
-        _colliderManager = _sock.AddComponent<EdgeColliderManager>();
+        edges = sockCollider.points;
+        edges[0] = new Vector2(-.32f, 0f);
+        edges[1] = new Vector2(.18f, 0f);
+        sockCollider.points = edges;
     }
 
     void Start()
     {
         var sock = _sock;
         var edges = _edges;
-        _colliderManager.AdjustEdgeCollider2D(edges, sock, x, y);
+        // _colliderManager.AdjustEdgeCollider2D(edges, sock, x, y);
     }
 
     void Update()

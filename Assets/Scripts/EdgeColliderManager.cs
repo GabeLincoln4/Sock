@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class EdgeColliderManager : MonoBehaviour
 {
-    public void AdjustEdgeCollider2D(Vector2[] edges, GameObject gameObject, float x, float y)
+    private EdgeCollider2D _collider;
+    public void ModifyEdgeCollider2D(EdgeCollider2D sockCollider)
     {
-        gameObject.AddComponent<EdgeCollider2D>();
-        edges = gameObject.GetComponent<EdgeCollider2D>().points;
-        edges[0] = new Vector2(x, y);
+        sockCollider = GetComponent<EdgeCollider2D>();
+        // edges = gameObject.GetComponent<EdgeCollider2D>().points;
+        // edges[0] = new Vector2(x, y);
     }
 }
