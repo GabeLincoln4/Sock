@@ -23,7 +23,7 @@ public class SockManager : MonoBehaviour
     private RotationResponse _rotationResponse;
     private EdgeColliderManager _colliderManager;
     private EdgeCollider2D _sockCollider;
-    private Vector2[] edges; 
+
 
     void Awake()
     {
@@ -31,10 +31,7 @@ public class SockManager : MonoBehaviour
         sockCollider = _sock.AddComponent<EdgeCollider2D>();
         _rotationResponse = _sock.AddComponent<RotationResponse>();
         _rotation = _sock.GetComponent<Transform>();
-        edges = sockCollider.points;
-        edges[0] = new Vector2(-.32f, 0f);
-        edges[1] = new Vector2(.18f, 0f);
-        sockCollider.points = edges;
+        // sockCollider.points = ModifyCollider(_sockCollider, _edges);
     }
 
     void Start()
@@ -50,5 +47,14 @@ public class SockManager : MonoBehaviour
         
         _rotationResponse.RotateCounterclockwiseOnRightClick(rotation);
         _rotationResponse.RotateClockwiseOnLeftClick(rotation);  
+    }
+
+    public Vector2[] ModifyCollider(EdgeCollider2D edgeBorder, Vector2[] vertices)
+    {
+
+        vertices = edgeBorder.points;
+        vertices[0] = new Vector2(-.32f, 0f);
+        vertices[1] = new Vector2(.18f, 0f);
+        return vertices;
     }
 }
