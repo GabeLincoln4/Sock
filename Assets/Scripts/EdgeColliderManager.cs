@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class EdgeColliderManager : MonoBehaviour
 {
-    public Vector2[] ModifyCollider(GameObject gameObject)
+    public Vector2[] ModifyCollider(GameObject gameObject, float x, float y, float xx, float yy)
     {
         Vector2[] edgeBorder;
+        EdgeCollider2D collider;
 
-        edgeBorder = gameObject.AddComponent<EdgeCollider2D>().points;
-        edgeBorder[0] = new Vector2(-.32f, 0f);
-        edgeBorder[1] = new Vector2(.18f, 0f);
+        collider = gameObject.AddComponent<EdgeCollider2D>();
+        edgeBorder = collider.points;
+        edgeBorder[0] = new Vector2(x, y);
+        edgeBorder[1] = new Vector2(xx, yy);
+        collider.points = edgeBorder;
         return edgeBorder;
     }
 }

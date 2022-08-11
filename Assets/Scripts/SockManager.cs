@@ -15,6 +15,8 @@ public class SockManager : MonoBehaviour
 
     [SerializeField]
     public float y;
+    [SerializeField] public float xx;
+    [SerializeField] public float yy;
     
     [SerializeField]
     private int size;
@@ -29,8 +31,8 @@ public class SockManager : MonoBehaviour
     void Awake()
     {
         _colliderManager = _sock.AddComponent<EdgeColliderManager>();
-        _colliderManager.ModifyCollider(_sock);
-
+        _colliderManager.ModifyCollider(_sock, x, y, xx, yy);
+        
         _rotationResponse = _sock.AddComponent<RotationResponse>();
         _rotation = _sock.GetComponent<Transform>();
     }
@@ -47,6 +49,7 @@ public class SockManager : MonoBehaviour
         var rotation = _rotation;
         
         _rotationResponse.RotateCounterclockwiseOnRightClick(rotation);
-        _rotationResponse.RotateClockwiseOnLeftClick(rotation);  
+        _rotationResponse.RotateClockwiseOnLeftClick(rotation);
+          
     }  
 }

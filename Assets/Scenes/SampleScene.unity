@@ -500,4 +500,6 @@ MonoBehaviour:
   _sock: {fileID: 909946538}
   x: -0.32
   y: 0.18
+  xx: 0.32
+  yy: 0.18
   size: 0
