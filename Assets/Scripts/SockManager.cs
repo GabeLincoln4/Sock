@@ -15,6 +15,7 @@ public class SockManager : MonoBehaviour
     void Awake()
     {
         _colliderManager = _sock.AddComponent<EdgeColliderManager>();
+        _colliderManager.ModifyCollider(_sock);
         
         
         _rotationResponse = _sock.AddComponent<RotationResponse>();
