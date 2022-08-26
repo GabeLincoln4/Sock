@@ -6,11 +6,14 @@ public class BoxColliderCreator : MonoBehaviour
 {
     public List<BoxCollider2D> CreateBoxCollider(GameObject gameObject)
     {
+        float adjustedOffset;
         List<BoxCollider2D> colliderList = new List<BoxCollider2D>();
         BoxCollider2D topBox;
         BoxCollider2D bottomBox;
         float verticalColliderOffset = .135f;
         Vector2 newBoxSize = new Vector2(0.64f, 0.13f);
+
+        
         Vector2 newBoxOffset = new Vector2(0f, verticalColliderOffset);
         Vector2 newBottomBoxOffset = new Vector2(0f, -verticalColliderOffset);
         
@@ -26,5 +29,14 @@ public class BoxColliderCreator : MonoBehaviour
         colliderList.Add(topBox);
 
         return colliderList;
+    }
+
+    private float CalculateOffsetOnSizeChange(float offset, float size, float distanceFromEdge)
+    {
+        float adjustedOffset;
+
+        adjustedOffset = distanceFromEdge / 2 + offset;
+
+        return adjustedOffset;
     }
 }
