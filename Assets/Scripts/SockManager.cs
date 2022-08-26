@@ -10,12 +10,15 @@ public class SockManager : MonoBehaviour
     private Transform _rotation;
     private RotationResponse _rotationResponse;
     private EdgeColliderManager _colliderManager;
+    private BoxColliderCreator _boxCollider;
 
 
     void Awake()
     {
         _colliderManager = _sock.AddComponent<EdgeColliderManager>();
-        _colliderManager.ModifyCollider(_sock);
+
+        _boxCollider = _sock.AddComponent<BoxColliderCreator>();
+        _boxCollider.CreateBoxCollider(_sock);
         
         
         _rotationResponse = _sock.AddComponent<RotationResponse>();
