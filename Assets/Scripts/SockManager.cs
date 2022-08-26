@@ -29,7 +29,6 @@ public class SockManager : MonoBehaviour
     {
         var sock = _sock;
         var edges = _edges;
-        // _colliderManager.AdjustEdgeCollider2D(edges, sock, x, y);
     }
 
     void Update()
