@@ -5,11 +5,9 @@ using UnityEngine;
 public class SockManager : MonoBehaviour
 {
     [SerializeField]
-    private bool Rotation;
-
-    [SerializeField]
     private GameObject _sock;
     
+<<<<<<< HEAD
     [SerializeField]
     public float x;
 
@@ -20,12 +18,12 @@ public class SockManager : MonoBehaviour
     
     [SerializeField]
     private int size;
+=======
+>>>>>>> sock-edge-collider-visibility
     private Vector2[] _edges;
     private Transform _rotation;
     private RotationResponse _rotationResponse;
     private EdgeColliderManager _colliderManager;
-    
-    private Vector2[] _sockCollider;
 
 
     void Awake()
