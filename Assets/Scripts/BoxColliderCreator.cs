@@ -27,16 +27,18 @@ public class BoxColliderCreator : MonoBehaviour
         Debug.Log(topBox.bounds.center.GetType());
         colliderList.Add(bottomBox);
         colliderList.Add(topBox);
+        
+        Debug.Log(gameObject.GetComponent<Renderer>().bounds.size);
 
         return colliderList;
     }
 
-    private float CalculateOffsetOnSizeChange(float offset, float size, float distanceFromEdge)
+    private void CalculateOffsetOnSizeChange(float offset, float size, float distanceFromEdge)
     {
-        float adjustedOffset;
+        // float adjustedOffset;
 
-        adjustedOffset = distanceFromEdge / 2 + offset;
+        // adjustedOffset = distanceFromEdge / 2 + offset;
 
-        return adjustedOffset;
+        // return adjustedOffset;
     }
 }
