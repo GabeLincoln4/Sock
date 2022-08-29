@@ -18,9 +18,27 @@ public class SockManager : MonoBehaviour
         _colliderManager = _sock.AddComponent<EdgeColliderManager>();
 
         _boxCollider = _sock.AddComponent<BoxColliderCreator>();
-        _boxCollider.CreateBoxCollider(_sock);
+
+        if (sockOpeningSize == "xl")
+        {
+            _boxCollider.CreateBoxCollider(_sock, .10f);
+        }
+
+        if (sockOpeningSize == "large")
+        {
+            _boxCollider.CreateBoxCollider(_sock, .11f);
+        }
         
-        
+        if (sockOpeningSize == "medium")
+        {
+            _boxCollider.CreateBoxCollider(_sock, .12f);
+        }
+
+        if (sockOpeningSize == "small")
+        {
+            _boxCollider.CreateBoxCollider(_sock, .13f);
+        }
+
         _rotationResponse = _sock.AddComponent<RotationResponse>();
         _rotation = _sock.GetComponent<Transform>();
     }

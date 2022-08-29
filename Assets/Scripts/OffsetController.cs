@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OffsetController : MonoBehaviour
 {
-    private float CalculateOffsetOnSizeChange(float renderedSizeYAxis, float collisionSizeYAxis)
+    public float CalculateOffset(float renderedSizeYAxis, float collisionSizeYAxis)
     {
         float scaledDownValue = 10f;
         float offsetYAxis;

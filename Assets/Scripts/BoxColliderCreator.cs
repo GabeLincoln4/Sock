@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class BoxColliderCreator : MonoBehaviour
 {
-    public List<BoxCollider2D> CreateBoxCollider(GameObject gameObject)
+    private OffsetController _offsetController;
+
+    public List<BoxCollider2D> CreateBoxCollider(GameObject gameObject, float boxColliderHeight)
     {
+        _offsetController = gameObject.AddComponent<OffsetController>();
         float adjustedOffset;
+        float renderedSizeHeight = gameObject.GetComponent<Renderer>().bounds.size.y;
         List<BoxCollider2D> colliderList = new List<BoxCollider2D>();
         BoxCollider2D topBox;
         BoxCollider2D bottomBox;
-        float verticalColliderOffset = .135f;
-        Vector2 newBoxSize = new Vector2(0.64f, 0.13f);
+        float verticalColliderOffset = _offsetController.CalculateOffset(renderedSizeHeight, boxColliderHeight);
+        Vector2 newBoxSize = new Vector2(0.64f, boxColliderHeight);
 
         
         Vector2 newBoxOffset = new Vector2(0f, verticalColliderOffset);
