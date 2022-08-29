@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SockManager : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject _sock;
+    [SerializeField] private GameObject _sock;
+    [SerializeField] private string sockOpeningSize;
     private Vector2[] _edges;
     private Transform _rotation;
     private RotationResponse _rotationResponse;
