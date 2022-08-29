@@ -32,13 +32,4 @@ public class BoxColliderCreator : MonoBehaviour
 
         return colliderList;
     }
-
-    private void CalculateOffsetOnSizeChange(float offset, float size, float distanceFromEdge)
-    {
-        // float adjustedOffset;
-
-        // adjustedOffset = distanceFromEdge / 2 + offset;
-
-        // return adjustedOffset;
-    }
 }
