@@ -497,4 +497,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sock: {fileID: 909946538}
-  sockOpeningSize: xl
+  sockOpeningSize: small
