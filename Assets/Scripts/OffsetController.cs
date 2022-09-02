@@ -8,6 +8,7 @@ public class OffsetController : MonoBehaviour
     public float CalculateOffsetHeight(float renderedSizeYAxis, float collisionSizeYAxis)
     {
         float offsetYAxis;
+
         offsetYAxis = ((renderedSizeYAxis / scaledDownValue) - collisionSizeYAxis) / 2;
 
         return offsetYAxis;
@@ -16,7 +17,8 @@ public class OffsetController : MonoBehaviour
     public float CalculateOffsetWidth(float renderedSizeXAxis, float collisionSizeXAxis)
     {
         float offsetXAxis;
-        offsetXAxis = ((renderedSizeXAxis / scaledDownValue) - collisionSizeXAxis / 2);
+
+        offsetXAxis = (-collisionSizeXAxis - (renderedSizeXAxis / scaledDownValue) ) / 2;
 
         return offsetXAxis;
     }

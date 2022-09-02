@@ -11,6 +11,7 @@ public class SockManager : MonoBehaviour
     private RotationResponse _rotationResponse;
     private EdgeColliderManager _colliderManager;
     private BoxColliderManager _boxCollider;
+    private float _middleBoxHeight = .1f;
 
 
     void Awake()
@@ -22,21 +23,25 @@ public class SockManager : MonoBehaviour
         if (sockOpeningSize == "xl")
         {
             _boxCollider.CreateBoxCollider(_sock, .10f);
+            _boxCollider.CreateMiddleBoxCollider(_sock, _middleBoxHeight);
         }
 
         if (sockOpeningSize == "large")
         {
             _boxCollider.CreateBoxCollider(_sock, .11f);
+            _boxCollider.CreateMiddleBoxCollider(_sock, _middleBoxHeight);
         }
         
         if (sockOpeningSize == "medium")
         {
             _boxCollider.CreateBoxCollider(_sock, .12f);
+            _boxCollider.CreateMiddleBoxCollider(_sock, _middleBoxHeight);
         }
 
         if (sockOpeningSize == "small")
         {
             _boxCollider.CreateBoxCollider(_sock, .13f);
+            _boxCollider.CreateMiddleBoxCollider(_sock, _middleBoxHeight);
         }
 
         _rotationResponse = _sock.AddComponent<RotationResponse>();
