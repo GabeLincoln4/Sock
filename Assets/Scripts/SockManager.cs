@@ -10,14 +10,14 @@ public class SockManager : MonoBehaviour
     private Transform _rotation;
     private RotationResponse _rotationResponse;
     private EdgeColliderManager _colliderManager;
-    private BoxColliderCreator _boxCollider;
+    private BoxColliderManager _boxCollider;
 
 
     void Awake()
     {
         _colliderManager = _sock.AddComponent<EdgeColliderManager>();
 
-        _boxCollider = _sock.AddComponent<BoxColliderCreator>();
+        _boxCollider = _sock.AddComponent<BoxColliderManager>();
 
         if (sockOpeningSize == "xl")
         {

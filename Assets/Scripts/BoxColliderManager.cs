@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoxColliderCreator : MonoBehaviour
+public class BoxColliderManager : MonoBehaviour
 {
     private OffsetController _offsetController;
 
