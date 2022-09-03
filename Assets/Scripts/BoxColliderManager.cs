@@ -10,6 +10,7 @@ public class BoxColliderManager : MonoBehaviour
 
     public List<BoxCollider2D> CreateBoxCollider(GameObject gameObject, float boxColliderHeight)
     {
+        float verticalColliderOffset = 1;
         _offsetController = gameObject.AddComponent<OffsetController>();
         _colliderCreation = gameObject.AddComponent<ColliderCreationManager>();
         float renderedSizeHeight = gameObject.GetComponent<Renderer>().bounds.size.y;
@@ -17,8 +18,6 @@ public class BoxColliderManager : MonoBehaviour
 
         BoxCollider2D topBox;
         BoxCollider2D bottomBox;
-
-        float verticalColliderOffset = _offsetController.CalculateOffsetHeight(renderedSizeHeight, boxColliderHeight);
 
         topBox = _colliderCreation.CreateAndPlaceBoxCollider(boxColliderHeight, verticalColliderOffset, gameObject, "vertical");
         bottomBox = _colliderCreation.CreateAndPlaceBoxCollider(boxColliderHeight, -verticalColliderOffset, gameObject, "vertical");
@@ -30,7 +29,7 @@ public class BoxColliderManager : MonoBehaviour
         return colliderList;
     }
 
-    public void CreateMiddleBoxCollider(GameObject gameObject, float boxColliderHeight)
+    public BoxCollider2D CreateMiddleBoxCollider(GameObject gameObject, float boxColliderHeight)
     {
         _offsetController = GetComponent<OffsetController>();
         _colliderCreation = GetComponent<ColliderCreationManager>();
@@ -39,5 +38,7 @@ public class BoxColliderManager : MonoBehaviour
         float horizontalColliderOffset = _offsetController.CalculateOffsetWidth(renderedSizeWidth, boxColliderHeight);
         
         middleBox = _colliderCreation.CreateAndPlaceBoxCollider(boxColliderHeight, horizontalColliderOffset, gameObject, "horizontal");
+
+        return middleBox;
     }
 }
