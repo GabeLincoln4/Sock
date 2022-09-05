@@ -7,15 +7,18 @@ public class SockManager : MonoBehaviour
     [SerializeField] private GameObject _sock;
     [SerializeField] private string sockOpeningSize;
     private Vector2[] _edges;
-    private Transform _rotation;
+    private Transform _transform;
     private RotationResponse _rotationResponse;
     private EdgeColliderManager _colliderManager;
     private BoxColliderManager _boxCollider;
+    private ScalingResponse _scaleResponse;
     private float _middleBoxHeight = .1f;
+    private Vector3 boundsOfSock;
 
 
     void Awake()
     {
+        boundsOfSock = _sock.GetComponent<Renderer>().bounds.size;
         _colliderManager = _sock.AddComponent<EdgeColliderManager>();
 
         _boxCollider = _sock.AddComponent<BoxColliderManager>();
@@ -45,7 +48,8 @@ public class SockManager : MonoBehaviour
         }
 
         _rotationResponse = _sock.AddComponent<RotationResponse>();
-        _rotation = _sock.GetComponent<Transform>();
+        _scaleResponse = _sock.AddComponent<ScalingResponse>();
+        _transform = _sock.GetComponent<Transform>();
     }
 
     void Start()
@@ -56,10 +60,11 @@ public class SockManager : MonoBehaviour
 
     void Update()
     {
-        var rotation = _rotation;
+        var transform = _transform;
         
-        _rotationResponse.RotateCounterclockwiseOnRightClick(rotation);
-        _rotationResponse.RotateClockwiseOnLeftClick(rotation);
-          
+        _rotationResponse.RotateCounterclockwiseOnRightClick(transform);
+        _rotationResponse.RotateClockwiseOnLeftClick(transform);
+        _scaleResponse.ScalingResponseOnInput(transform, boundsOfSock);
+        Debug.Log(_sock.GetComponent<Renderer>().bounds.size);
     }  
 }
