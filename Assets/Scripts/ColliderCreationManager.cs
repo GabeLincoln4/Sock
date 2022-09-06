@@ -5,10 +5,13 @@ using UnityEngine;
 public class ColliderCreationManager : MonoBehaviour
 {
     private OffsetController _offsetController;
+    private Transform _invertedColliderVector;
 
     public BoxCollider2D CreateAndPlaceBoxCollider(float height, float offset, GameObject gameObject, string offsetDirection)
     {
         BoxCollider2D box;
+        float localHeight;
+        _invertedColliderVector = GetComponent<Transform>();
         List<float> widthList = CalculateWidthFromDirection(offsetDirection, gameObject, height);
 
         Vector2 newBoxSize = new Vector2(widthList[0], height);
@@ -16,6 +19,8 @@ public class ColliderCreationManager : MonoBehaviour
         
         box = gameObject.AddComponent<BoxCollider2D>();
         box.size = newBoxSize;
+        localHeight = _invertedColliderVector.InverseTransformVector(box.size).y;
+        //Debug.Log(localHeight);
         box.offset = newBoxOffset;
 
         return box;

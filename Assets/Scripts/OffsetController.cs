@@ -20,9 +20,6 @@ public class OffsetController : MonoBehaviour
 
         offsetXAxis = ((renderedSizeXAxis / scaledDownValue) - collisionSizeXAxis) / 2;
 
-        Debug.Log(renderedSizeXAxis);
-        Debug.Log(collisionSizeXAxis);
-
         return offsetXAxis;
     }
 }

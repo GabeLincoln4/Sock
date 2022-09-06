@@ -65,6 +65,5 @@ public class SockManager : MonoBehaviour
         _rotationResponse.RotateCounterclockwiseOnRightClick(transform);
         _rotationResponse.RotateClockwiseOnLeftClick(transform);
         _scaleResponse.ScalingResponseOnInput(transform, boundsOfSock);
-        Debug.Log(_sock.GetComponent<Renderer>().bounds.size);
     }  
 }
