@@ -19,12 +19,9 @@ public class BoxColliderManager : MonoBehaviour
         BoxCollider2D topBox;
         BoxCollider2D bottomBox;
 
-        topBox = _colliderCreation.CreateAndPlaceBoxCollider(boxColliderHeight, verticalColliderOffset, gameObject, "vertical");
         bottomBox = _colliderCreation.CreateAndPlaceBoxCollider(boxColliderHeight, -verticalColliderOffset, gameObject, "vertical");
         
-
         colliderList.Add(bottomBox);
-        colliderList.Add(topBox);
 
         return colliderList;
     }
