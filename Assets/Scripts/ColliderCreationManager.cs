@@ -19,8 +19,6 @@ public class ColliderCreationManager : MonoBehaviour
         
         box = gameObject.AddComponent<BoxCollider2D>();
         box.size = newBoxSize;
-        localHeight = _invertedColliderVector.InverseTransformVector(box.size).y;
-        //Debug.Log(localHeight);
         box.offset = newBoxOffset;
 
         return box;
