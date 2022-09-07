@@ -10,7 +10,6 @@ public class ColliderCreationManager : MonoBehaviour
     public BoxCollider2D CreateAndPlaceBoxCollider(float height, float offset, GameObject gameObject, string offsetDirection)
     {
         BoxCollider2D box;
-        float localHeight;
         _invertedColliderVector = GetComponent<Transform>();
         List<float> widthList = CalculateWidthFromDirection(offsetDirection, gameObject, height);
 

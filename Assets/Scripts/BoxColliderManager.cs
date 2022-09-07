@@ -16,7 +16,7 @@ public class BoxColliderManager : MonoBehaviour
         float renderedSizeHeight = gameObject.GetComponent<Renderer>().bounds.size.y;
         List<BoxCollider2D> colliderList = new List<BoxCollider2D>();
 
-        BoxCollider2D topBox;
+       
         BoxCollider2D bottomBox;
 
         bottomBox = _colliderCreation.CreateAndPlaceBoxCollider(boxColliderHeight, -verticalColliderOffset, gameObject, "vertical");
