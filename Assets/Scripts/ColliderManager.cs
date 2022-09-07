@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class ColliderManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject _targetGameObject;
+    [SerializeField] private GameObject _currentGameObject;
 
-    // Update is called once per frame
-    void Update()
+    private OffsetController _offsetController;
+    private float _offsetHeight = 0f;
+
+    void Awake()
     {
-        
+        float placementYAxis = _targetGameObject.GetComponent<Renderer>().bounds.size.y;
+        _offsetController = _currentGameObject.AddComponent<OffsetController>();
+
+        _offsetController.CalculateOffsetHeight(placementYAxis, .11f);
     }
 }
