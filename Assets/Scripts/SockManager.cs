@@ -43,8 +43,7 @@ public class SockManager : MonoBehaviour
 
         if (sockOpeningSize == "small")
         {
-            _boxCollider.CreateBoxCollider(_sock, .13f);
-            _boxCollider.CreateMiddleBoxCollider(_sock, _middleBoxHeight);
+            Debug.Log("Size is small");
         }
 
         _rotationResponse = _sock.AddComponent<RotationResponse>();
