@@ -18,5 +18,13 @@ public class FootManager : MonoBehaviour
     void Update()
     {
         _foot.transform.Translate(_direction * _movementSpeed * Time.deltaTime);
+        SetFootBoundaries(_foot);
+    }
+
+    public void SetFootBoundaries(GameObject gameObject)
+    {
+        Vector3 objectPosition = gameObject.transform.position;
+
+        Debug.Log(objectPosition);
     }
 }
