@@ -7,7 +7,7 @@ public class Manager : MonoBehaviour
     
     [SerializeField] private GameObject foot;
     
-    void Start()
+    void Awake()
     {
         foot.AddComponent<BoxCollider2D>();
     }
