@@ -24,7 +24,16 @@ public class FootManager : MonoBehaviour
     public void SetFootBoundaries(GameObject gameObject)
     {
         Vector3 objectPosition = gameObject.transform.position;
+        float heightBoundary = 3.5f;
 
-        Debug.Log(objectPosition);
+        if (objectPosition.y >= heightBoundary)
+        {
+            _direction = new Vector3(0, -1, 0);
+        }
+
+        if (objectPosition.y <= -heightBoundary)
+        {
+            _direction = new Vector3(0, 1, 0);
+        }  
     }
 }

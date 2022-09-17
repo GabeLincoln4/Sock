@@ -552,4 +552,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _foot: {fileID: 431786524}
-  _movementSpeed: 0.5
+  _movementSpeed: 1
