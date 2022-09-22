@@ -16,5 +16,11 @@ public class WinTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("You win");
+        PauseGame();
+    }
+
+    private void PauseGame()
+    {
+        Time.timeScale = 0;
     }
 }
