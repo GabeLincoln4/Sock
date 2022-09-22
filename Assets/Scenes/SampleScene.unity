@@ -550,6 +550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31ad04d5a614af345ad977e49e40c29b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _winMessage: {fileID: 7591454243370077235, guid: 2a92d407bf7a0e14b9abe20dd4176d91, type: 3}
 --- !u!1 &1353655928
 GameObject:
   m_ObjectHideFlags: 0

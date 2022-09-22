@@ -4,19 +4,13 @@ using UnityEngine;
 
 public class WinTrigger : MonoBehaviour
 {
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
-    }
+    [SerializeField ]private GameObject _winMessage;
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("You win");
         PauseGame();
+        Instantiate(_winMessage);
     }
 
     private void PauseGame()
