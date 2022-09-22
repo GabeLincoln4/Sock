@@ -20,7 +20,7 @@ public class Movement : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		float horizontal = Input.GetAxis("Horizontal"); //a or left = -1 or right = 1
+		float horizontal = Input.GetAxis("Horizontal"); 
 		float vertical = Input.GetAxis("Vertical");
 
 		rb.velocity = new Vector2 (speed*horizontal, speed*vertical);
