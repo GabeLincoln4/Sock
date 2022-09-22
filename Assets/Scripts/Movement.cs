@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float speed;
+    [SerializeField] private float _thrust;
 
-	Rigidbody2D rb;
+	private Rigidbody2D rb;
 
 	void Start () 
 	{
@@ -20,9 +20,10 @@ public class Movement : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		float horizontal = Input.GetAxis("Horizontal"); //a or left = -1 or right = 1
-		float vertical = Input.GetAxis("Vertical");
-
-		rb.velocity = new Vector2 (speed*horizontal, speed*vertical);
+		if (Input.GetKeyDown(KeyCode.Space))
+        {
+			Debug.Log("Space Pressed");
+            rb.AddRelativeForce(new Vector2(-_thrust, 0)); 
+        }
 	}	
 }
