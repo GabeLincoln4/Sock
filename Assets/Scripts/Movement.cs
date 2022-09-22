@@ -20,6 +20,7 @@ public class Movement : MonoBehaviour
 
 	void FixedUpdate()
 	{
+		
 		if (Input.GetKeyDown(KeyCode.Space))
         {
 			Debug.Log("Space Pressed");
