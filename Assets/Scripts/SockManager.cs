@@ -65,4 +65,9 @@ public class SockManager : MonoBehaviour
         _rotationResponse.RotateClockwiseOnLeftClick(transform);
         _scaleResponse.ScalingResponseOnInput(transform, boundsOfSock);
     }  
+
+    public void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("You win!");
+    }
 }
