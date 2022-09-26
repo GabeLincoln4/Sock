@@ -6,6 +6,7 @@ public class SockManager : MonoBehaviour
 {
     [SerializeField] private GameObject _sock;
     [SerializeField] private string sockOpeningSize;
+    [SerializeField] private bool _rotation;
     private Vector2[] _edges;
     private Transform _transform;
     private RotationResponse _rotationResponse;
@@ -61,8 +62,12 @@ public class SockManager : MonoBehaviour
     {
         var transform = _transform;
         
-        _rotationResponse.RotateCounterclockwiseOnRightClick(transform);
-        _rotationResponse.RotateClockwiseOnLeftClick(transform);
+        if (_rotation)
+        {
+            _rotationResponse.RotateCounterclockwiseOnRightClick(transform);
+            _rotationResponse.RotateClockwiseOnLeftClick(transform);
+        }
+
         _scaleResponse.ScalingResponseOnInput(transform, boundsOfSock);
     }  
 }
