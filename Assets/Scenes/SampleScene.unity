@@ -417,7 +417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _thrust: 500
-  _verticalSpeed: 5
+  _verticalSpeed: 20
 --- !u!50 &909946542
 Rigidbody2D:
   serializedVersion: 4

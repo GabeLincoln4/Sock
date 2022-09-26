@@ -16,20 +16,20 @@ public class Movement : MonoBehaviour
 
 	void Update() 
 	{
-
-	}
-
-	void FixedUpdate()
-	{
-		float vertical = Input.GetAxis("Vertical");
-
-
-		rb.AddForce(new Vector2(0, vertical));
+		
+		
+             
 
 		if (Input.GetKeyDown(KeyCode.Space))
         {
 			Debug.Log("Space Pressed");
             rb.AddForce(new Vector2(-_thrust, 0)); 
         }
+	}
+
+	void FixedUpdate()
+	{
+		Vector3 movement = new Vector3(0, Input.GetAxis("Vertical") * _verticalSpeed * Time.deltaTime, 0);
+		transform.position += movement * _verticalSpeed * Time.deltaTime;
 	}	
 }
