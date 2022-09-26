@@ -5,6 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [SerializeField] private float _thrust;
+	[SerializeField] private float _verticalSpeed;
 
 	private Rigidbody2D rb;
 
@@ -20,11 +21,15 @@ public class Movement : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		
+		float vertical = Input.GetAxis("Vertical");
+
+
+		rb.AddForce(new Vector2(0, vertical));
+
 		if (Input.GetKeyDown(KeyCode.Space))
         {
 			Debug.Log("Space Pressed");
-            rb.AddRelativeForce(new Vector2(-_thrust, 0)); 
+            rb.AddForce(new Vector2(-_thrust, 0)); 
         }
 	}	
 }
