@@ -416,7 +416,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d22b3547c21af8f4089b150bd145aed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  _thrust: 500
+  _verticalSpeed: 20
 --- !u!50 &909946542
 Rigidbody2D:
   serializedVersion: 4
@@ -431,7 +432,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
