@@ -50,7 +50,6 @@ public class SockManager : MonoBehaviour
         }
 
         _rotationResponse = _sock.AddComponent<RotationResponse>();
-        _scaleResponse = _sock.AddComponent<ScalingResponse>();
         _transform = _sock.GetComponent<Transform>();
     }
 
@@ -69,8 +68,6 @@ public class SockManager : MonoBehaviour
             _rotationResponse.RotateCounterclockwiseOnRightClick(transform);
             _rotationResponse.RotateClockwiseOnLeftClick(transform);
         }
-
-        _scaleResponse.ScalingResponseOnInput(transform, boundsOfSock);
     }  
 
     void FixedUpdate()
