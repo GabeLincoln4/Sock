@@ -25,7 +25,12 @@ public class Movement : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		Vector3 movement = new Vector3(0, Input.GetAxis("Vertical") * _verticalSpeed * Time.deltaTime, 0);
-		transform.position += movement * _verticalSpeed * Time.deltaTime;
+		
 	}	
+
+	public void MoveVertically(float speed)
+	{
+		Vector3 movement = new Vector3(0, Input.GetAxis("Vertical") * Time.deltaTime, 0);
+		transform.position += movement * speed * Time.deltaTime;
+	}
 }

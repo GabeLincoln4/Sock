@@ -7,6 +7,7 @@ public class SockManager : MonoBehaviour
     [SerializeField] private GameObject _sock;
     [SerializeField] private string sockOpeningSize;
     [SerializeField] private bool _rotation;
+    [SerializeField] private float _speed;
     private Vector2[] _edges;
     private Transform _transform;
     private RotationResponse _rotationResponse;
@@ -15,13 +16,14 @@ public class SockManager : MonoBehaviour
     private ScalingResponse _scaleResponse;
     private float _middleBoxHeight = .1f;
     private Vector3 boundsOfSock;
+    private Movement _movement;
 
 
     void Awake()
     {
         boundsOfSock = _sock.GetComponent<Renderer>().bounds.size;
         _colliderManager = _sock.AddComponent<EdgeColliderManager>();
-
+        _movement = _sock.AddComponent<Movement>();
         _boxCollider = _sock.AddComponent<BoxColliderManager>();
 
         if (sockOpeningSize == "xl")
@@ -70,4 +72,9 @@ public class SockManager : MonoBehaviour
 
         _scaleResponse.ScalingResponseOnInput(transform, boundsOfSock);
     }  
+
+    void FixedUpdate()
+    {
+        _movement.MoveVertically(_speed);
+    }
 }

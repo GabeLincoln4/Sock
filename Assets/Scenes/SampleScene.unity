@@ -599,6 +599,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sock: {fileID: 909946538}
   sockOpeningSize: small
+  _rotation: 0
+  _speed: 250
 --- !u!114 &1353655933
 MonoBehaviour:
   m_ObjectHideFlags: 0
