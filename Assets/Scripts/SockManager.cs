@@ -7,6 +7,8 @@ public class SockManager : MonoBehaviour
     [SerializeField] private GameObject _sock;
     [SerializeField] private bool _rotation;
     [SerializeField] private float _speed;
+    [SerializeField] private bool _horizontalMovement;
+
     private Transform _transform;
     private RotationResponse _rotationResponse;
     private EdgeColliderManager _colliderManager;
@@ -33,6 +35,10 @@ public class SockManager : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (_horizontalMovement)
+        {
+            _movement.MoveHorizontally(_speed);
+        }
         _movement.MoveVertically(_speed);
     }
 }

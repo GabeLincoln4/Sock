@@ -33,4 +33,10 @@ public class Movement : MonoBehaviour
 		Vector3 movement = new Vector3(0, Input.GetAxis("Vertical") * Time.deltaTime, 0);
 		transform.position += movement * speed * Time.deltaTime;
 	}
+
+	public void MoveHorizontally(float speed)
+	{
+		Vector3 movement = new Vector3(Input.GetAxis("Horizontal") * Time.deltaTime, 0, 0);
+		transform.position += movement * speed * Time.deltaTime;
+	}
 }

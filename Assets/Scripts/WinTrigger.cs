@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class WinTrigger : MonoBehaviour
 {
-    [SerializeField ]private GameObject _winMessage;
+    [SerializeField] private GameObject _winMessage;
     
-    private void OnTriggerEnter2D(Collider2D col)
+    public void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Sock"))
-        {
-            Debug.Log("You win");
+        Debug.Log(col.gameObject.CompareTag("Sock"));
+        Debug.Log(col.gameObject.CompareTag("Screen Border"));
+
+         Debug.Log("You win");
             PauseGame();
             Instantiate(_winMessage);
+
+        if (col.gameObject.CompareTag("Sock"))
+        {
+           
         }
 
         if (col.gameObject.CompareTag("Screen Border"))
