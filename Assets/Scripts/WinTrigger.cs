@@ -6,11 +6,21 @@ public class WinTrigger : MonoBehaviour
 {
     [SerializeField ]private GameObject _winMessage;
     
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("You win");
-        PauseGame();
-        Instantiate(_winMessage);
+        if (col.gameObject.CompareTag("Sock"))
+        {
+            Debug.Log("You win");
+            PauseGame();
+            Instantiate(_winMessage);
+        }
+
+        if (col.gameObject.CompareTag("Screen Border"))
+        {
+            Debug.Log("You Lose");
+            PauseGame();
+        }
+        
     }
 
     private void PauseGame()

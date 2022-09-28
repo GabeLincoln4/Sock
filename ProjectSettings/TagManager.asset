@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Win Message
+  - Sock
+  - Screen Border
   layers:
   - Default
   - TransparentFX
