@@ -2,27 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WinTrigger : MonoBehaviour
+public class WinTrigger : MonoBehaviour, ITriggerable
 {
-    [SerializeField] private GameObject _winMessage;
+    // [SerializeField] private GameObject _winMessage;
     
-    public void OnTriggerEnter2D(Collider2D col)
+    public void Trigger()
     {
-        if (col.gameObject.name == "Screen Border")
-        {
-            Debug.Log("You lose");
-        }
-
-        if (col.gameObject.name == "Foot")
-        {
-            Debug.Log("You win");
-        }
-
-        PauseGame();
-    }
-
-    private void PauseGame()
-    {
-        Time.timeScale = 0;
+        Debug.Log("You Win!");
     }
 }

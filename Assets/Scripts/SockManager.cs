@@ -14,12 +14,15 @@ public class SockManager : MonoBehaviour
     private EdgeColliderManager _colliderManager;
     private BoxColliderManager _boxCollider;
     private Movement _movement;
+    private Collider2D _col;
 
     void Awake()
     {
         _movement = _sock.AddComponent<Movement>();
         _rotationResponse = _sock.AddComponent<RotationResponse>();
         _transform = _sock.GetComponent<Transform>();
+        _col = _sock.GetComponent<EdgeCollider2D>();
+        
     }
 
     void Update()
@@ -41,4 +44,6 @@ public class SockManager : MonoBehaviour
         }
         _movement.MoveVertically(_speed);
     }
+
+    
 }
