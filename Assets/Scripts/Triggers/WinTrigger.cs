@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class WinTrigger : MonoBehaviour, ITriggerable
 {
-    // [SerializeField] private GameObject _winMessage;
-    
+    private StateController _stateController;
+
+    void Awake()
+    {
+        _stateController = gameObject.AddComponent<StateController>();
+    }
+
     public void Trigger()
     {
         Debug.Log("You Win!");
+        _stateController.PauseGame();
     }
 }
