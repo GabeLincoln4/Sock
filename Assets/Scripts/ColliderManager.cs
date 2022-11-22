@@ -8,7 +8,6 @@ public class ColliderManager : MonoBehaviour
     [SerializeField] private GameObject _currentGameObject;
 
     private OffsetController _offsetController;
-    private float _offsetHeight = 0f;
 
     void Awake()
     {
