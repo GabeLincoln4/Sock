@@ -18,8 +18,8 @@ public class SockManager : MonoBehaviour
 
     void Awake()
     {
-        _movement = _sock.AddComponent<Movement>();
-        _rotationResponse = _sock.AddComponent<RotationResponse>();
+        _movement = _sock.GetComponent<Movement>();
+        _rotationResponse =_sock.GetComponent<RotationResponse>();
         _transform = _sock.GetComponent<Transform>();
         _col = _sock.GetComponent<EdgeCollider2D>();
         
