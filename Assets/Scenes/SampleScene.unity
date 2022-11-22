@@ -608,7 +608,7 @@ GameObject:
   - component: {fileID: 1353655933}
   - component: {fileID: 1353655934}
   m_Layer: 0
-  m_Name: Component Initializer
+  m_Name: Game Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -658,7 +658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _foot: {fileID: 431786524}
-  _movementSpeed: 0
+  _movementSpeed: 1
 --- !u!114 &1353655934
 MonoBehaviour:
   m_ObjectHideFlags: 0
