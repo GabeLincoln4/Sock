@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WinTrigger : MonoBehaviour, ICollidable
+public class Foot : MonoBehaviour
 {
     private StateController _stateController;
 
@@ -10,8 +10,7 @@ public class WinTrigger : MonoBehaviour, ICollidable
     {
         _stateController = gameObject.AddComponent<StateController>();
     }
-
-    public void CollisionRespond()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("You Win!");
         _stateController.PauseGame();

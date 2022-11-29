@@ -20,4 +20,9 @@ public class FootManager : MonoBehaviour
         _direction = _boundaryController.SetFootBoundaries(_foot, _direction);
         _foot.transform.Translate(_direction * _movementSpeed * Time.deltaTime);  
     }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("You Win!");
+    }
 }

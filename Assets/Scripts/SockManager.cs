@@ -43,7 +43,5 @@ public class SockManager : MonoBehaviour
             _movement.MoveHorizontally(_speed);
         }
         _movement.MoveVertically(_speed);
-    }
-
-    
+    }   
 }
